@@ -79,6 +79,7 @@ services:
   mysql:
     # Use the latest available 5.x version of MySQL
     image: tugboatqa/mysql:5
+    checkout: true
 
     # A set of commands to run while building this service
     commands:
@@ -90,5 +91,5 @@ services:
         # Copy a database dump from an external server.
         - wget -O /tmp/database.sql.gz "https://www.dropbox.com/s/w55xwxb0p6xydnk/tugboat-demo-drupal-db-dump.sql.gz?dl=1"
         - mysql -e 'drop database tugboat; create database tugboat;'
-        - zcat /tmp/database.sql.gz | mysql tugboat
-        - rm /tmp/database.sql.gz
+        - zcat $TUGBOAT_ROOT/db-dump.sql.gz | mysql tugboat
+        - rm -rf $TUGBOAT_ROOT
