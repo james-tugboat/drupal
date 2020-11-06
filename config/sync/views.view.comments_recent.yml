@@ -13,7 +13,6 @@ description: 'Recent comments.'
 tag: default
 base_table: comment_field_data
 base_field: cid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -174,18 +173,20 @@ display:
           entity_field: changed
       filters:
         status:
-          value: true
+          value: '1'
           table: comment_field_data
           field: status
           id: status
           plugin_id: boolean
           expose:
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
           group: 1
           entity_type: comment
           entity_field: status
         status_node:
-          value: true
+          value: '1'
           table: node_field_data
           field: status
           relationship: node
@@ -193,6 +194,8 @@ display:
           plugin_id: boolean
           expose:
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
           group: 1
           entity_type: node
           entity_field: status

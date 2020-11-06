@@ -8,3 +8,5 @@ recipients:
   - dev+newsplusd8@morethanthemes.com
 reply: ''
 weight: 0
+message: 'Your message has been sent.'
+redirect: ''

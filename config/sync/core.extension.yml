@@ -26,6 +26,7 @@ module:
   options: 0
   page_cache: 0
   path: 0
+  path_alias: 0
   quickedit: 0
   rdf: 0
   search: 0
@@ -49,3 +50,5 @@ theme:
   seven: 0
   stable: 0
   newsplus: 0
+  olivero: 0
+profile: standard

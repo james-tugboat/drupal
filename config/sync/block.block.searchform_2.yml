@@ -1,6 +1,6 @@
 uuid: 5c3179d5-c68a-4256-8000-fdac0dcda0d6
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - search
@@ -9,7 +9,7 @@ dependencies:
     - newsplus
 id: searchform_2
 theme: newsplus
-region: footer_first
+region: ''
 weight: -24
 provider: null
 plugin: search_form_block
@@ -18,6 +18,7 @@ settings:
   label: Search
   provider: search
   label_display: visible
+  page_id: ''
 visibility:
   request_path:
     id: request_path
