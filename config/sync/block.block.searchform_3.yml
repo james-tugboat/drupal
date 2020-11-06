@@ -9,7 +9,7 @@ dependencies:
     - newsplus
 id: searchform_3
 theme: newsplus
-region: '-1'
+region: pre_header_left
 weight: -23
 provider: null
 plugin: search_form_block

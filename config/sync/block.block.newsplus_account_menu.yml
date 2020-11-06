@@ -10,7 +10,7 @@ dependencies:
     - newsplus
 id: newsplus_account_menu
 theme: newsplus
-region: ''
+region: pre_header_left
 weight: -16
 provider: null
 plugin: 'system_menu_block:account'

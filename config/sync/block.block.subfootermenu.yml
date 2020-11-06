@@ -10,7 +10,7 @@ dependencies:
     - newsplus
 id: subfootermenu
 theme: newsplus
-region: '-1'
+region: pre_header_left
 weight: -21
 provider: null
 plugin: 'system_menu_block:subfooter-menu'

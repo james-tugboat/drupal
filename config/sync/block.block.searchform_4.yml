@@ -8,7 +8,7 @@ dependencies:
     - newsplus
 id: searchform_4
 theme: newsplus
-region: ''
+region: pre_header_left
 weight: -26
 provider: null
 plugin: search_form_block

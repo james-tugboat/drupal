@@ -10,7 +10,7 @@ dependencies:
     - newsplus
 id: subfootermenu_2
 theme: newsplus
-region: '-1'
+region: pre_header_left
 weight: -22
 provider: null
 plugin: 'superfish:subfooter-menu'
@@ -21,6 +21,7 @@ settings:
   label_display: visible
   level: '1'
   depth: '0'
+  expand_all_items: false
   menu_type: horizontal
   style: none
   arrow: 1
