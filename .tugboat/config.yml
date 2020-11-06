@@ -87,10 +87,8 @@ services:
       # skipping the init step, because the results of that step will
       # already be present.
       update:
-        # Copy a database dump from an external server. The public
-        # SSH key found in the Tugboat Repository configuration must be
-        # copied to the external server in order to use scp.
-        - wget -O /tmp/database.sql "https://www.dropbox.com/s/9omeceyujt53s83/tugboat-demo3-5-2.sql?dl=1&pv=1"
+        # Copy a database dump from an external server.
+        - wget -O /tmp/database.sql.gz "https://www.dropbox.com/s/w55xwxb0p6xydnk/tugboat-demo-drupal-db-dump.sql.gz?dl=1"
         - mysql -e 'drop database tugboat; create database tugboat;'
-        - cat /tmp/database.sql | mysql tugboat
-        - rm /tmp/database.sql
+        - zcat /tmp/database.sql.gz | mysql tugboat
+        - rm /tmp/database.sql.gz
