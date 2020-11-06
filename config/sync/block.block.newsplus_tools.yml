@@ -1,6 +1,6 @@
 uuid: 1a2f61e9-7435-4b1c-8300-ce603cb3b687
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.tools
@@ -10,7 +10,7 @@ dependencies:
     - newsplus
 id: newsplus_tools
 theme: newsplus
-region: sidebar_second
+region: pre_header_left
 weight: -17
 provider: null
 plugin: 'system_menu_block:tools'
@@ -21,6 +21,7 @@ settings:
   label_display: visible
   level: 1
   depth: 0
+  expand_all_items: false
 visibility:
   request_path:
     id: request_path

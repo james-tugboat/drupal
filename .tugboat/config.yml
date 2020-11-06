@@ -69,6 +69,11 @@ services:
         - drush config:import -y
         - drush updatedb -y
         - drush cache:rebuild
+
+      start:
+        # Warm the homepage
+        - 'curl --silent -H "Host: TUGBOAT_DEFAULT_SERVICE_URL_HOST" http://localhost > /dev/null'
+
     # Here are some URLs to add visual diffs to.
     urls:
       - /
@@ -79,6 +84,7 @@ services:
   mysql:
     # Use the latest available 5.x version of MySQL
     image: tugboatqa/mysql:5
+    checkout: true
 
     # A set of commands to run while building this service
     commands:
@@ -87,10 +93,6 @@ services:
       # skipping the init step, because the results of that step will
       # already be present.
       update:
-        # Copy a database dump from an external server. The public
-        # SSH key found in the Tugboat Repository configuration must be
-        # copied to the external server in order to use scp.
-        - wget -O /tmp/database.sql "https://www.dropbox.com/s/9omeceyujt53s83/tugboat-demo3-5-2.sql?dl=1&pv=1"
         - mysql -e 'drop database tugboat; create database tugboat;'
-        - cat /tmp/database.sql | mysql tugboat
-        - rm /tmp/database.sql
+        - zcat $TUGBOAT_ROOT/db-dump.sql.gz | mysql tugboat
+        - rm -rf $TUGBOAT_ROOT
