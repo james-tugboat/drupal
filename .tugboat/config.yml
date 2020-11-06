@@ -72,7 +72,7 @@ services:
 
       start:
         # Warm the homepage
-        - curl -H "Host: $TUGBOAT_DEFAULT_SERVICE_HOST" http://localhost
+        - 'curl --silent -H "Host: TUGBOAT_DEFAULT_SERVICE_URL_HOST" http://localhost > /dev/null'
 
     # Here are some URLs to add visual diffs to.
     urls:
