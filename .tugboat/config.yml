@@ -37,12 +37,6 @@ services:
         - ln -snf "${TUGBOAT_ROOT}/config" "${DOCROOT}/../config"
         - ln -snf "${TUGBOAT_ROOT}/files-private" "${DOCROOT}/../files-private"
 
-        # Install/update packages managed by composer, including drush.
-        - composer install --optimize-autoloader
-
-        # Install the minimal profile which sets up the settings.php file.
-        - drush --yes site:install minimal --db-url=mysql://tugboat:tugboat@mysql/tugboat
-
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
       # skipping the init step, because the results of that step will
@@ -50,6 +44,7 @@ services:
       update:
         # Install/update packages managed by composer, including drush.
         - composer install --optimize-autoloader
+        - cp .tugboat/tugboat.settings.php $TUGBOAT_ROOT/web/sites/default/settings.local.php
 
         - rm -rf "${DOCROOT}/sites/default/files"
         - wget -O /tmp/files.zip "https://www.dropbox.com/s/v5zydjej6mzsxs9/files3-5.zip?dl=1&pv=1"
