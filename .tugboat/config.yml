@@ -69,6 +69,11 @@ services:
         - drush config:import -y
         - drush updatedb -y
         - drush cache:rebuild
+
+      start:
+        # Warm the homepage
+        - curl -H "Host: $TUGBOAT_DEFAULT_SERVICE_HOST" http://localhost
+
     # Here are some URLs to add visual diffs to.
     urls:
       - /
@@ -88,8 +93,6 @@ services:
       # skipping the init step, because the results of that step will
       # already be present.
       update:
-        # Copy a database dump from an external server.
-        - wget -O /tmp/database.sql.gz "https://www.dropbox.com/s/w55xwxb0p6xydnk/tugboat-demo-drupal-db-dump.sql.gz?dl=1"
         - mysql -e 'drop database tugboat; create database tugboat;'
         - zcat $TUGBOAT_ROOT/db-dump.sql.gz | mysql tugboat
         - rm -rf $TUGBOAT_ROOT
