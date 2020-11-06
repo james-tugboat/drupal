@@ -95,4 +95,3 @@ services:
       update:
         - mysql -e 'drop database tugboat; create database tugboat;'
         - zcat $TUGBOAT_ROOT/db-dump.sql.gz | mysql tugboat
-        - rm -rf $TUGBOAT_ROOT
