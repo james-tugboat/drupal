@@ -43,6 +43,7 @@ services:
       # already be present.
       update:
         # Install/update packages managed by composer, including drush.
+        - composer self-update
         - composer install --optimize-autoloader
         - cp .tugboat/tugboat.settings.php $TUGBOAT_ROOT/web/sites/default/settings.local.php
 
