@@ -44,7 +44,7 @@ services:
       update:
         # Install/update packages managed by composer, including drush.
         - composer self-update
-        - composer install --optimize-autoloader
+        - composer install --optimize-autoloader --ignore-platform-reqs
         - cp .tugboat/tugboat.settings.php $TUGBOAT_ROOT/web/sites/default/settings.local.php
 
         - rm -rf "${DOCROOT}/sites/default/files"
@@ -65,7 +65,7 @@ services:
       # and update steps, because the results of those are inherited
       # from the base preview.
       build:
-        - composer install --optimize-autoloader
+        - composer install --optimize-autoloader --ignore-platform-reqs
         - drush cache:rebuild
         - drush config:import -y
         - drush updatedb -y
