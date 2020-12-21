@@ -84,7 +84,7 @@ services:
       - /contact
       
     visualdiff:
-      - threshold: 90
+      threshold: 90
 
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
