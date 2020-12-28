@@ -77,7 +77,7 @@ services:
 
     # Here are some URLs to add visual diffs to.
     urls:
-      - url: /
+      - /
         visualdiff:
           threshold: 90
           
