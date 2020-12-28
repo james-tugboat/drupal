@@ -79,12 +79,12 @@ services:
     urls:
       - url: /
         visualdiff:
-          threshold: 90
+          threshold: 95
           
       - url: /about
         visualdiff:
           threshold: 
-            mobile: 80
+            mobile: 99
 
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
