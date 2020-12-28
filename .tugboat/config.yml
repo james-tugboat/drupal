@@ -77,11 +77,14 @@ services:
 
     # Here are some URLs to add visual diffs to.
     urls:
-      - /
+      - url: /
         visualdiff:
           threshold: 90
           
-      - /about
+      - url: /about
+        visualdiff:
+          threshold: 
+            mobile: 80
 
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
