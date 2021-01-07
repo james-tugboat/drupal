@@ -19,7 +19,8 @@ services:
       init:
         # Install opcache and mod-rewrite.
         - docker-php-ext-install opcache
-        - a2enmod headers rewrite
+        - a2enmod headers rewrite substitute
+        - cp .tugboat/vhost.conf /etc/apache2/sites-available/000-default.conf
 
         # Install drush-launcher, if desired.
         - wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
