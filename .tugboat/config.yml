@@ -106,4 +106,7 @@ services:
   stackhawk:
     image: stackhawk/hawkscan
     checkout: true
-
+    commands:
+      online:
+        - echo 'hi'
+      ready: true
