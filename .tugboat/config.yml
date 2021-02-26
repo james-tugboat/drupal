@@ -109,4 +109,4 @@ services:
     commands:
       online:
         - echo 'hi'
-      ready: true
+      ready: "true"
