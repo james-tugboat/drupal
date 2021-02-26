@@ -82,7 +82,7 @@ services:
       - /features
       - /about
       - /contact
-      
+
     visualdiff:
       threshold: 90
 
@@ -102,3 +102,8 @@ services:
       update:
         - mysql -e 'drop database tugboat; create database tugboat;'
         - zcat $TUGBOAT_ROOT/db-dump.sql.gz | mysql tugboat
+
+  stackhawk:
+    image: stackhawk/hawkscan
+    checkout: true
+
