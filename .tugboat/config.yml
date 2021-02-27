@@ -111,6 +111,6 @@ services:
       build:
         - git -C /hawk fetch
         - git -C /hawk checkout origin/$TUGBOAT_PREVIEW_REF -ft
-        - sed -e "s@https://[^\.]\+\.tugboat\.qa@$TUGBOAT_DEFAULT_SERVICE_URL@g" -i /hawk/stackhawk.yml 
+        - sed -e "s@https://[^\.]\+\.tugboat\.qa/\?@$TUGBOAT_DEFAULT_SERVICE_URL@g" -i /hawk/stackhawk.yml 
       online:
         - shawk
