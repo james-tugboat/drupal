@@ -105,4 +105,3 @@ services:
 
   stackhawk:
     image: q0rban/tugboat-stackhawk
-    checkout: true
