@@ -105,3 +105,12 @@ services:
 
   stackhawk:
     image: q0rban/tugboat-stackhawk
+    commands:
+      init:
+        - git clone https://github.com/TugboatDemo/drupal.git /hawk
+      build:
+        - git -C /hawk fetch
+        - git -C /hawk checkout origin/$TUGBOAT_PREVIEW_REF -ft
+        - sed -e "s@https://[^\.]\+\.tugboat\.qa@$TUGBOAT_DEFAULT_SERVICE_URL@g" -i /hawk/stackhawk.yml 
+      online:
+        - shawk
