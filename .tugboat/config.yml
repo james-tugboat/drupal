@@ -104,7 +104,7 @@ services:
         - zcat $TUGBOAT_ROOT/db-dump.sql.gz | mysql tugboat
 
   stackhawk:
-    image: q0rban/tugboat-stackhawk
+    image: stackhawk/hawkscan
     commands:
       init:
         - git clone https://github.com/TugboatDemo/drupal.git /hawk
