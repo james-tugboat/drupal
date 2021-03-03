@@ -105,6 +105,8 @@ services:
 
   stackhawk:
     image: stackhawk/hawkscan
+    checkout: true
+    checkout_path: /hawk
     commands:
       init:
         - git clone https://github.com/TugboatDemo/drupal.git /hawk
