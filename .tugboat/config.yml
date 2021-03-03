@@ -104,7 +104,7 @@ services:
         - zcat $TUGBOAT_ROOT/db-dump.sql.gz | mysql tugboat
 
   stackhawk:
-    image: q0rban/stackhawk
+    image: q0rban/tugboat-stackhawk
     checkout: true
     checkout_path: /hawk
     commands:
