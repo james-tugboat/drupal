@@ -7,6 +7,13 @@ app:
   # The url of your application to scan
   host: https://main-cwe33g05lh1v1k6owsc0gziqbccvp0yt.tugboat.qa/ # (required)
   # The names of your session tokens aka: cookie names
+  includePaths:
+    - '/robots\.txt'
+    - '/'
+    - '/archive'
+    - '/features'
+    - '/about'
+    - '/contact'
 #  sessionTokens: # (optional)
 #    - "_toy_app_session"
 #  # The name of your anti csrf parameter
