@@ -8,7 +8,6 @@ app:
   host: https://main-cwe33g05lh1v1k6owsc0gziqbccvp0yt.tugboat.qa/ # (required)
   # The names of your session tokens aka: cookie names
   includePaths:
-    - '/robots\.txt'
     - '/'
     - '/archive'
     - '/features'
