@@ -48,10 +48,8 @@ services:
         - cp .tugboat/tugboat.settings.php $TUGBOAT_ROOT/web/sites/default/settings.local.php
 
         - rm -rf "${DOCROOT}/sites/default/files"
-        - wget -O /tmp/files.zip "https://www.dropbox.com/s/v5zydjej6mzsxs9/files3-5.zip?dl=1&pv=1"
-        - unzip /tmp/files.zip -d /tmp/extracted-files
-        - mv /tmp/extracted-files/files "${DOCROOT}/sites/default/"
-        - rm -rf /tmp/extracted-files /tmp/files.zip
+        - tar -xvzf files.tgz
+        - mv files "${DOCROOT}/sites/default/"
 
         # Set file permissions such that Drupal will not complain
         - chgrp -R www-data "${DOCROOT}/sites/default/files"
@@ -82,7 +80,7 @@ services:
       - /features
       - /about
       - /contact
-      
+
     visualdiff:
       threshold: 90
 
