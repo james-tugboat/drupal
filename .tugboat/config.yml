@@ -100,3 +100,15 @@ services:
       update:
         - mysql -e 'drop database tugboat; create database tugboat;'
         - zcat $TUGBOAT_ROOT/db-dump.sql.gz | mysql tugboat
+
+  stackhawk:
+    image: q0rban/tugboat-stackhawk
+    commands:
+      init:
+        - git clone https://github.com/TugboatDemo/drupal.git /hawk
+      build:
+        - git -C /hawk fetch
+        - git -C /hawk checkout origin/$TUGBOAT_PREVIEW_REF -ft
+        - sed -e "s@https://[^\.]\+\.tugboat\.qa/\?@$TUGBOAT_DEFAULT_SERVICE_URL@g" -i /hawk/stackhawk.yml 
+      online:
+        - cd /zap && shawk
