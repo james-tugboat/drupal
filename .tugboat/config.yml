@@ -68,6 +68,7 @@ services:
         - drush config:import -y
         - drush updatedb -y
         - drush cache:rebuild
+        - echo "Hello world"
 
       start:
         # Warm the homepage
